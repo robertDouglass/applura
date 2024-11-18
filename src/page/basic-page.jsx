@@ -12,11 +12,11 @@ const BasicPage = ({ fields }) => {
   // Extract the required fields from the resource fields.
   const { mainMenu, title, body } = fields;
   return (
-    <h1>Hi Rob!</h1>
     <div id="basic-page">
       <header>
         {/* The main resource. */}
         <Nav resource={mainMenu.data} />
+        <h1>Hi Rob!</h1>
         <h2>{title}</h2>
       </header>
       <main>
