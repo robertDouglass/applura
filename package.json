@@ -1,0 +1,27 @@
+{
+  "name": "applura-intro-react",
+  "version": "1.0.0",
+  "description": "Introductory front-end application using React",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:client && npm run build:server && npm run build:assets",
+    "build:watch": "webpack --watch",
+    "build:client": "webpack --config webpack.config.cjs",
+    "build:server": "webpack --config webpack.config.server.cjs",
+    "build:assets": "rm -rf dist/static dist/index.html && cp -r src/index.html src/static dist/"
+  },
+  "author": "Applura, Inc",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.22.15",
+    "babel-loader": "^9.1.3",
+    "prettier": "^3.0.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

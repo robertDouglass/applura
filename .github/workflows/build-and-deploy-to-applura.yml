@@ -1,0 +1,28 @@
+name: Build and deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source code
+        uses: actions/checkout@v4
+
+      - name: Download and install dependencies
+        run: npm install
+
+      - name: Build JavaScript bundles and copy assets to the "dist" directory
+        run: npm run build
+
+      - name: Deploy to Applura
+        uses: applura/deploy@1.0.1
+        with:
+          key: ${{ secrets.APPLURA_DEPLOY_KEY }}
+          note: ${{ github.event.head_commit.message }}
+          directory: ./dist
